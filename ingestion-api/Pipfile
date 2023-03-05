@@ -11,6 +11,12 @@ jinja2 = "*"
 python-multipart = "*"
 
 [dev-packages]
+pytest = "*"
+pylint = "*"
+isort = "*"
+black = "*"
+pytest-asyncio = "*"
+httpx = "*"
 
 [requires]
 python_version = "3.10"
