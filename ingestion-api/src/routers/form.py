@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 router = APIRouter()
 templates = Jinja2Templates(directory="src/templates")
 
+
 @router.get("/", tags=["ingestion"], response_class=HTMLResponse)
 async def show_form(request: Request):
     return templates.TemplateResponse("form.html", {"request": request})
