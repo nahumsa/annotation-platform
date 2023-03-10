@@ -4,7 +4,7 @@ VERSION  = 0.1
 .PHONY: tests
 
 docker-build-local:
-	docker build -t i${APP_NAME}ngestion-api:${VERSION} .
+	docker build -t ${APP_NAME}:${VERSION} .
 
 docker-run-local:
 	docker run -p 8080:8080  ${APP_NAME}:${VERSION}
