@@ -1,5 +1,8 @@
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 import pytest
-from fastapi import APIRouter, FastAPI
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from routers import form
