@@ -9,6 +9,8 @@ uvicorn = "*"
 pydantic = "*"
 jinja2 = "*"
 python-multipart = "*"
+argilla = "*"
+toml = "*"
 
 [dev-packages]
 pytest = "*"

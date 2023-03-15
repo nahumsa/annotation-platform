@@ -1,0 +1,9 @@
+[argilla]
+api_url = "http://localhost:6900"
+api_key = ""
+
+[dataset]
+name = "toxic_texts"
+labels = ["toxic", "not_toxic"]
+tags = { owner = "User", created_on = "2022-03-14" }
+background = true
