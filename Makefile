@@ -9,3 +9,6 @@ build-ingestion-api-docker:
 start-ingestion-api:
 	cd ingestion-api ; \
 	make docker-run-local
+
+start-annotation-platform:
+	docker compose up -d

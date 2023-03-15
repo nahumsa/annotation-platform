@@ -7,7 +7,10 @@ docker-build-local:
 	docker build -t ${APP_NAME}:${VERSION} .
 
 docker-run-local:
-	docker run -p 8080:8080  ${APP_NAME}:${VERSION}
+	docker run --add-host=host.docker.internal:host-gateway -d -p 8080:8080 ${APP_NAME}:${VERSION}
+
+connect-to-argilla-network:
+	docker network connect argilla_argilla ingestion-api
 
 tests:
 	pipenv run pytest

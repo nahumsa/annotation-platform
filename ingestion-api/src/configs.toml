@@ -1,5 +1,7 @@
 [argilla]
-api_url = "http://localhost:6900"
+api_url = "http://argilla:6900"
+# When running locally, use the api_url as bellow
+# api_url = "http://localhost:6900"
 api_key = ""
 
 [dataset]
