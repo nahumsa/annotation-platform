@@ -33,7 +33,9 @@ class TestFormSubmission:
         with TestClient(app) as client:
             yield client
 
-    def test_post_text_entry(self, client):
+    def test_post_text_entry(self, mocker, client):
+        # Mock argilla
+        mocker.patch("routers.form.rg")
         response = client.post("/submit/", data={"text_entry": "Test text"})
         assert response.status_code == 200
         with open("src/templates/result.html", "r", encoding="utf-8") as html_file:
