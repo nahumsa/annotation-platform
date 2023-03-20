@@ -9,6 +9,8 @@ uvicorn = "*"
 pydantic = "*"
 jinja2 = "*"
 python-multipart = "*"
+argilla = "*"
+toml = "*"
 
 [dev-packages]
 pytest = "*"
@@ -17,6 +19,7 @@ isort = "*"
 black = "*"
 pytest-asyncio = "*"
 httpx = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.10"

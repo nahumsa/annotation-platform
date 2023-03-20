@@ -1,0 +1,32 @@
+services:
+  argilla:
+    extends:
+        file: ./argilla/docker-compose.yaml
+        service: argilla
+
+  elasticsearch:
+    extends:
+        file: ./argilla/docker-compose.yaml
+        service: elasticsearch
+
+  kibana:
+    extends:
+        file: ./argilla/docker-compose.yaml
+        service: kibana
+
+  ingestion-api:
+    build:
+      context: ingestion-api
+      dockerfile: Dockerfile
+    container_name: ingestion-api
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - argilla
+
+networks:
+  argilla:
+    driver: bridge
+
+volumes:
+  elasticdata:

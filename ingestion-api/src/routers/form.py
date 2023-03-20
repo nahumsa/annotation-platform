@@ -1,9 +1,13 @@
+import argilla as rg
 from fastapi import APIRouter, Form, Request, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
+from src.configs import read_config_file
+
 router = APIRouter()
 templates = Jinja2Templates(directory="src/templates")
+configs = read_config_file("src/configs.toml")
 
 
 @router.get("/", tags=["ingestion"], response_class=HTMLResponse)
@@ -16,7 +20,7 @@ async def show_form(request: Request) -> HTMLResponse:
     Returns:
         HTMLResponse: webpage.
     """
-    return templates.TemplateResponse("form.html", {"request": request})
+    return templates.TemplateResponse("form.html", {"request": request})  # type: ignore
 
 
 @router.post("/submit/", tags=["ingestion"])
@@ -29,7 +33,22 @@ async def submit_text_entry(text_entry: str = Form(...)) -> RedirectResponse:
     Returns:
         RedirectResponse: Redirects to /results.
     """
-    # TODO: add data to the argilla server.
+
+    rg.init(**configs.argilla.dict())
+
+    record = rg.TextClassificationRecord(
+        text=text_entry,
+        multi_label=False,
+    )
+
+    rg.log(
+        records=record,
+        name=configs.dataset.name,
+        tags=configs.dataset.tags,
+        background=configs.dataset.background,
+        verbose=False,
+    )
+
     return RedirectResponse(url="/results", status_code=status.HTTP_303_SEE_OTHER)
 
 
@@ -43,4 +62,4 @@ async def results(request: Request) -> HTMLResponse:
     Returns:
         HTMLResponse: results webpage.
     """
-    return templates.TemplateResponse("result.html", {"request": request})
+    return templates.TemplateResponse("result.html", {"request": request})  # type: ignore
