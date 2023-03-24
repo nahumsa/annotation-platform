@@ -24,6 +24,16 @@ services:
     networks:
       - argilla
 
+  serving-api:
+    build:
+      context: serving-api
+      dockerfile: Dockerfile
+    container_name: serving-api
+    ports:
+      - "127.0.0.1:9000:9000"
+    networks:
+      - argilla
+
 networks:
   argilla:
     driver: bridge

@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
+python-multipart = "*"
+argilla = "*"
+toml = "*"
+pandas = "*"
+
+[dev-packages]
+pytest = "*"
+pylint = "*"
+isort = "*"
+black = "*"
+pytest-asyncio = "*"
+httpx = "*"
+pytest-mock = "*"
+ipython = "*"
+
+[requires]
+python_version = "3.10"
