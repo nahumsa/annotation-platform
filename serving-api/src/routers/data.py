@@ -1,3 +1,4 @@
+# pylint: disable=import-error
 from typing import Annotated
 
 import argilla as rg
