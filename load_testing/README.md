@@ -48,7 +48,7 @@ This error means that we have data that is lost on the upload to argilla. This p
 
 2) The plot regarding the load testing is the following:
 
-![load testing Ingestion API figure](images/load_testing_serving_api_50_users_per_second.png)
+![load testing Ingestion API figure](images/load_testing_ingestion_api_50_users_per_second.png)
 
 This figures shows that as the amount of the users grows the response time also grows, this means that we have a bottleneck and our API doesn't scale. One possible solution is the same as the previous case, we can create a database or file storage to keep the data instead of adding directly to argilla and wait for the response.
 
