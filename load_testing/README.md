@@ -10,9 +10,15 @@
 
 ## Introduction
 
-In order to test if the solution scales, it is interesting to do load testing because it measures
-how well the API will handle a large number of concurrent transactions and show potential bottlenecks
-for solution architecture.
+Load testing is the process of measuring the performance of a system or application under a specific workload. In the context of an API, load testing is used to simulate a large number of concurrent requests to the API in order to evaluate how well it can handle the load.
+
+When testing an API solution, it is essential to know how well it will perform under heavy loads. If an API is designed to handle only a few requests at a time and is subjected to a sudden surge in traffic, it could become overwhelmed, leading to decreased performance, errors, or even crashes. Load testing helps identify potential bottlenecks in the architecture of the solution before it is deployed to production, which can save time, money, and prevent negative impacts on end-users.
+
+By performing load testing, developers can simulate real-world scenarios where the API is used by multiple users simultaneously. It measures the API's ability to handle a large number of transactions per second, assesses its response time, and detects any potential issues. It also provides data on the maximum capacity of the API and helps to identify areas of improvement in the architecture.
+
+For example, if the load testing identifies a specific endpoint that is causing high CPU usage, it indicates a potential bottleneck in the code or database. By identifying such issues early on, developers can take steps to optimize the API's performance, such as caching or query optimization.
+
+In conclusion, load testing is an essential step in the API development process that helps to ensure that the solution can handle large volumes of requests and identify any potential issues before deployment. It provides developers with valuable insights into the API's performance and scalability, allowing them to make informed decisions and optimize the solution for better performance.
 
 ## Running tests
 
