@@ -50,14 +50,20 @@ This error means that we have data that is lost on the upload to argilla. This p
 
 ![load testing Ingestion API figure](images/load_testing_ingestion_api_50_users_per_second.png)
 
-This figures shows that as the amount of the users grows the response time also grows, this means that we have a bottleneck and our API doesn't scale. One possible solution is the same as the previous case, we can create a database or file storage to keep the data instead of adding directly to argilla and wait for the response.
+When the number of users increases, the load on the system also increases, which can cause a strain on the available resources such as server capacity and bandwidth. If the resources are insufficient to handle the increased load, it could lead to slower response times and an increased number of failed requests, which could ultimately impact the user experience. 
+
+The limited Request per Second is an indication of the maximum number of requests that the API can handle in a given period. When this limit is reached, any additional requests will be rejected, leading to failed requests and possibly a degraded user experience. Response times of ~60 seconds indicate that the ingestion API is struggling to process requests efficiently. When response times are slow, it leads to a poor user experience, and should be addressed.
+
+One way of addressing it is storing data in a database or file could be a feasible solution to this problem. By doing so, data can be processed and analyzed in batches, which could improve the overall efficiency of the system. This approach could also provide a buffer for handling a sudden surge in requests. However, implementing a database or file storage system requires additional resources and could increase the complexity of the system. Therefore, it is essential to carefully evaluate the trade-offs between performance, cost, and complexity when considering this solution.
 
 ### Serving API
 
-We have the following plot regarding the load testing the serving API:
+This plot shows load testing of the serving API. However, the test has limited data with only ~100 toxic and ~100 non-toxic texts. As the number of texts increases, the query time will also increase:
 
 ![load testing Serving API figure](images/load_testing_serving_api_50_users_per_second.png)
 
-One caveat of this test is that we have only ~100 toxic texts and ~100 non toxic texts, as the number of texts grows the query to will take more time.
+The relationship between the number of users and response time is an important consideration when designing and scaling software systems. As the number of users accessing a system grows, the demand for resources increases, and the system may experience performance issues, such as increased response time. 
 
-This figure shows that as we grow the number of users, the response time grows, which makes the application not scale as the Ingestion API. As stated before, the best solution is to serve the data on a database, in this case an analytical database is best suited as it can handle a huge amount of data.
+The figure that shows the relationship between the number of users and response time is usually a graph, where the x-axis represents the time as the number of users ar scaled up, and the y-axis represents the response time. As the number of users increases, the response time also increases, indicating that the system is taking longer to respond to requests. When response times are slow, it leads to a poor user experience.
+
+ As stated before, the best solution is to serve the data on a database, in this case an analytical database is best suited as it can handle a huge amount of data.
