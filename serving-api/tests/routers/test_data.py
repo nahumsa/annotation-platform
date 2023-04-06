@@ -3,11 +3,12 @@
 # pylint: disable=import-error
 
 from http import client
+
 import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
-from src.models.dataset_return import DatasetReturn
 
+from src.models.dataset_return import DatasetReturn
 from src.routers import data
 
 
@@ -17,6 +18,7 @@ async def mock_fetch_argilla_dataset():
         non_toxic_texts=["test 123"],
         metadata={},
     )
+
 
 async def mock_fetch_argilla_no_data():
     return DatasetReturn(

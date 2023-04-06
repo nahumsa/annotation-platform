@@ -29,11 +29,10 @@ async def fetch_argilla_dataset(
     )
 
     return DatasetReturn(
-    toxic_texts=toxic_texts["text"].to_list(),
-    non_toxic_texts=non_toxic_texts["text"].to_list(),
-    metadata={},
-)
-
+        toxic_texts=toxic_texts["text"].to_list(),
+        non_toxic_texts=non_toxic_texts["text"].to_list(),
+        metadata={},
+    )
 
 
 @router.get("/fetch_dataset", tags=["serving"])
