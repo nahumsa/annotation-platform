@@ -6,7 +6,11 @@
 <a href="https://github.com/PyCQA/pylint"><img alt="pylint" src="https://img.shields.io/badge/linting-pylint-yellowgreen"></a>
 </p>
 
-The core idea of the project is to build an annotation platform that uses Argilla as the annotation layer and has one API for the ingestion layer and one API for the serving layer.
+The Annotation Platform is an open-source project aimed at providing a scalable and flexible annotation platform using Argilla as the annotation layer. The core idea of the project is to provide a simple and intuitive user interface for annotating on any dataset efficiently.
+
+The platform has two APIs, one for the ingestion layer, and another for the serving layer, to simplify the integration process with other applications. The ingestion API is used to upload data and annotations to the platform, while the serving API is used to retrieve annotations for processed data.
+
+The goal of the Annotation Platform is to make it highly scalable and easy to maintain.
 
 The rough sketch for v1 is in the following figure:
 
